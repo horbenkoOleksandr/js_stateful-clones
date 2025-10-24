@@ -23,12 +23,10 @@ function transformStateWithClones(state, actions) {
         }
         break;
       case 'clear':
-        for (const key in stateCopy) {
-          delete stateCopy[key];
-        }
+        stateCopy = {};
         break;
       default:
-        break;
+        throw new Error(`Invalid action type: ${type}`);
     }
     resultAllActions.push({ ...stateCopy });
   }
